@@ -7,23 +7,19 @@ console.log('loaded');
 myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/deck_editor', {
-      templateUrl: '/templates/pages/decks/index.html',
+      templateUrl: 'templates/pages/decks/index.html',
       controller: 'decksIndex'
     })
     .when('/deck_editor/new', {
-      templateUrl: '/templates/pages/decks/show.html',
+      templateUrl: 'templates/pages/decks/show.html',
       controller: 'decksShow'
     })
     .when('/deck_editor/:id', {
-      templateUrl: '/templates/pages/decks/show.html',
+      templateUrl: 'templates/pages/decks/show.html',
       controller: 'decksShow'
     })
-    .when('/play', {
-      templateUrl: '/templates/pages/home.html',
-      controller: 'board'
-    })
     .otherwise('/deck_editor', {
-      templateUrl: '/templates/pages/decks/index.html',
+      templateUrl: 'templates/pages/decks/index.html',
       controller: 'decksIndex'
     });
 }]);
