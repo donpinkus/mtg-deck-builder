@@ -1,0 +1,10 @@
+<section class="board flex flex-row">
+  <player-info></player-info>
+
+  <div class="battlefield flex">
+    <battle-field-card ng-repeat="card in player.battlefield" card="card"></battle-field-card>
+  </div>
+
+  <hand ng-if="!player.isOpponent"></hand>
+  
+</section>

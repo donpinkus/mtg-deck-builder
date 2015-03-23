@@ -1,0 +1,20 @@
+<main class="boardContainer flex flex-column">
+  <player-board player="opponent"></player-board>
+
+  <nav class="turnBar">
+    <div class="step-container flex">
+      <span data-turn-step="1" ng-class="{active: turnStep==1}">Untap</span>
+      <span data-turn-step="2" ng-class="{active: turnStep==2}">Upkeep</span>
+      <span data-turn-step="3" ng-class="{active: turnStep==3}">Draw</span>
+      <span data-turn-step="4" ng-class="{active: turnStep==4}">Main</span>
+      <span data-turn-step="5" ng-class="{active: turnStep==5}">Attack</span>
+      <span data-turn-step="6" ng-class="{active: turnStep==6}">Block</span>
+      <span data-turn-step="7" ng-class="{active: turnStep==7}">Damage</span>
+      <span data-turn-step="8" ng-class="{active: turnStep==8}">Main</span>
+      <span data-turn-step="9" ng-class="{active: turnStep==9}">Cleanup</span>
+    </div>
+    <button class="btn btn-primary next-button" ng-click="nextStep()">Next</button>
+  </nav>
+
+  <player-board player="plainswalker"></player-board>
+</main>

@@ -1,0 +1,53 @@
+<div class="deckEditorOuterContainer flex-column flex">
+	<div class="flex-row flex deckEditor">
+
+		<section class="cardSelector flex-column flex">
+			<div class="input-group">
+				<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-search"></i></span>
+				<input type="text" ng-model="cardName" placeholder="Enter a card name..." class="form-control" />
+			</div>
+
+			<br/>
+
+			<div class="progress cardsLoading hidden">
+			  <div class="progress-bar progress-bar-striped active" style="width: 45%">
+			    <span class="sr-only">45% Complete</span>
+			  </div>
+			</div>
+
+			<div class="cardResults flex">
+				<img ng-repeat="card in foundCards" src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid={{ card.multiverse_id }}&type=card" ng-click="addToDeck(card)" />
+			</div>
+		</section>
+
+		<section class="chosenCards flex-column">
+			<div class="deckInfo">
+				<input class="form-control deckName" type="text" ng-model="deck.name" value="{{ deck.name }}" />
+				<h4 class="text-center">{{ deck.cards.length }}/60 cards</h4>
+				<div class="text-center">
+					<a class="btn btn-default" href="/#/deck_editor">Cancel</a>
+					<button class="btn btn-primary" ng-click="saveDeck()">Save</button>
+				</div>
+			</div>
+
+			<p ng-if="deckCards.length == 0" class="text-center text-light">
+				<br/>
+				Please search for a card.
+			</p>
+			
+			<div class="deckCards flex">
+				<ul class="deckCardsList">
+					<li ng-repeat="card in uniqueCountedDeckCards" ng-click="removeCardFromDeck(card)" class="{{ card.colors[0] }}">
+						<span class="badge" ng-if="card.converted_mana_cost > 0">{{ card.converted_mana_cost }}</span> &nbsp; 
+						<span>{{ card.name }}</span>
+						<span class="pull-right">x{{ card.count }}</span>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</div>
+
+	<footer>
+		<p class="text-muted">Powered by <a href="http://api.blockspring.com/blocks" target="_new">Blockspring<a/></p>
+	</footer>
+</div>
